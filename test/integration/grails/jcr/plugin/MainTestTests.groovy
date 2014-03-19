@@ -55,6 +55,14 @@ class MainTestTests {
 
         Object o = ocm.getObject('/content/geometrixx/en/jcr:content')
 
+
+        String[] xmls = ["grails-app"+ File.separator +  "conf" + File.separator + "resource" + File.separator + "jcrmapping.xml"]
+
+        ObjectContentManager ocmXmlConfig = new ObjectContentManagerImpl(session, xmls)
+        Object o1 = ocmXmlConfig.getObject('/content/geometrixx/en/jcr:content')
+
+
+
         // 1. take the object and determine it's resource type
 
 
