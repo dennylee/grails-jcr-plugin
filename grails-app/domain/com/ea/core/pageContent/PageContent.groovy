@@ -8,18 +8,18 @@ import org.apache.jackrabbit.ocm.mapper.impl.annotation.Field
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Collection
 
-@Node(jcrType = CqConstants.CQ_PAGECONTENT, jcrMixinTypes = JcrConstants.JCR_CONTENT)
+//@Node(jcrType = CqConstants.CQ_PAGECONTENT, jcrMixinTypes = JcrConstants.JCR_CONTENT)
 class PageContent {
-    @Field(path=true)
+//    @Field(path=true)
     private String path
 
-    @Field(jcrName = CqConstants.SLING_RESOURCETYPE)
+//    @Field(jcrName = CqConstants.SLING_RESOURCETYPE)
     private String resourceType
 
-    @Field(jcrName = CqConstants.JCR_TITLE)
+//    @Field(jcrName = CqConstants.JCR_TITLE)
     private String jcrTitle
 
-    @Bean(jcrType = "nt:unstructured", jcrOnParentVersion="IGNORE")
+//    @Bean(jcrType = "nt:unstructured", jcrOnParentVersion="IGNORE")
     private Header header
 
     String getPath() {

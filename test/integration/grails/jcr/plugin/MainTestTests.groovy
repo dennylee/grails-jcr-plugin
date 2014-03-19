@@ -1,6 +1,9 @@
 package grails.jcr.plugin
 
+import com.ea.core.JcrNode
 import com.ea.core.components.Header
+import com.ea.core.components.Text
+import com.ea.core.page.CharacterPage
 import com.ea.core.pageContent.PageContent
 import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.ObjectContentManager
@@ -47,19 +50,23 @@ class MainTestTests {
         ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         List<Class> classes = new ArrayList<Class>();
-        classes.add(PageContent.class)
-        classes.add(Header.class)
+//        classes.add(PageContent.class)
+//        classes.add(Header.class)
+        classes.add(JcrNode.class)
+        classes.add(Text.class)
+        classes.add(CharacterPage.class)
 
         Mapper mapper = new AnnotationMapperImpl(classes);
         ObjectContentManager ocm =  new ObjectContentManagerImpl(session, mapper);
 
-        Object o = ocm.getObject('/content/geometrixx/en/jcr:content')
+//        Object o = ocm.getObject('/content/geometrixx/en/jcr:content')
+        Object o = ocm.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
 
 
-        String[] xmls = ["grails-app"+ File.separator +  "conf" + File.separator + "resource" + File.separator + "jcrmapping.xml"]
-
-        ObjectContentManager ocmXmlConfig = new ObjectContentManagerImpl(session, xmls)
-        Object o1 = ocmXmlConfig.getObject('/content/geometrixx/en/jcr:content')
+//        String[] xmls = ["grails-app"+ File.separator +  "conf" + File.separator + "resource" + File.separator + "jcrmapping.xml"]
+//
+//        ObjectContentManager ocmXmlConfig = new ObjectContentManagerImpl(session, xmls)
+//        Object o1 = ocmXmlConfig.getObject('/content/geometrixx/en/jcr:content')
 
 
 

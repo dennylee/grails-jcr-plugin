@@ -6,15 +6,15 @@ import org.apache.jackrabbit.JcrConstants
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Field
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
 
-@Node(jcrType = CqConstants.NT_UNSTRUCTURED)
+//@Node(jcrType = CqConstants.NT_UNSTRUCTURED)
 class Header  {
-    @Field(path=true)
+//    @Field(path=true)
     private String path
 
-    @Field(jcrName = "imageReference")
+//    @Field(jcrName = "imageReference")
     private String imageReference
 
-    @Field(jcrName = "text")
+//    @Field(jcrName = "text")
     private String text
 
     String getImageReference() {

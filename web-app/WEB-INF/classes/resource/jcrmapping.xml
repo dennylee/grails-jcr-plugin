@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jackrabbit-ocm>
+
+    <class-descriptor className="com.ea.core.pageContent.PageContent" jcrType="cq:PageContent" >
+        <!-- Field-descriptor is used to map simple attributes to jcr property -->
+        <field-descriptor fieldName="path" path="true"/>
+        <field-descriptor fieldName="jcrTitle" jcrName="jcr:title"/>
+
+        <bean-descriptor fieldName="header" jcrName="header" proxy="false" jcrType="nt:unstructured"
+                         jcrAutoCreated="false" jcrMandatory="false" jcrOnParentVersion="IGNORE"
+                         jcrProtected="false" jcrSameNameSiblings="false"/>
+    </class-descriptor>
+
+    <class-descriptor className="com.ea.core.components.Header" jcrType="nt:unstructured">
+        <field-descriptor fieldName="path" path="true"/>
+        <field-descriptor fieldName="imageReference" jcrName="imageReference"/>
+        <field-descriptor fieldName="text" jcrName="text"/>
+    </class-descriptor>
+</jackrabbit-ocm>

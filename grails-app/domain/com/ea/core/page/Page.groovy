@@ -1,6 +1,10 @@
 package com.ea.core.page
 
-import com.ea.core.pageContent.PageContent
+import com.ea.core.JcrNode
 
-class Page extends PageContent {
+/**
+ *  cq:Page
+ */
+class Page extends JcrNode {
+
 }
