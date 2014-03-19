@@ -22,3 +22,10 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// configuration
+environments {
+    development {
+        host = 'http://bur2-d1036236.eac.ad.ea.com:4502/crx/server'
+    }
+}

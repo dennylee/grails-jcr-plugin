@@ -23,8 +23,32 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+        runtime 'javax.jcr:jcr:2.0'
+        runtime 'org.apache.jackrabbit:jackrabbit-jcr-commons:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-ocm:1.5.3'
+        runtime 'org.apache.jackrabbit:jackrabbit-spi-commons:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-jcr2dav:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-spi:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-jcr2spi:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-spi2jcr:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-spi2dav:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-webdav:2.7.4'
 
-        // runtime 'mysql:mysql-connector-java:5.1.18'
+
+        runtime 'commons-httpclient:commons-httpclient:3.1'
+        runtime 'commons-codec:commons-codec:1.2'
+        runtime 'commons-logging:commons-logging:1.0.4'
+
+
+//        runtime 'org.apache.jackrabbit:jackrabbit-core:2.7.4'
+
+//        runtime 'org.apache.jackrabbit:jackrabbit-jca:2.7.4'
+
+//        runtime 'org.apache.jackrabbit:jackrabbit-jcr2dav:2.7.4'
+//        runtime 'org.apache.jackrabbit:jackrabbit-jcr-client:2.7.4'
+//        runtime 'org.apache.jackrabbit:jackrabbit-spi:2.7.4'
+//        runtime 'org.apache.jackrabbit:jackrabbit-webdav:2.7.4'
+//        runtime 'org.apache.jackrabbit:jackrabbit-jcr-rmi:2.7.4'
     }
 
     plugins {
