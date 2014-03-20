@@ -5,7 +5,10 @@ import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.ObjectContentManager
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
 import org.apache.jackrabbit.ocm.mapper.Mapper
+import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationDescriptorReader
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
+import org.apache.jackrabbit.ocm.mapper.impl.digester.DigesterDescriptorReader
+import org.apache.jackrabbit.ocm.mapper.impl.digester.DigesterMapperImpl
 
 import javax.jcr.Repository
 import javax.jcr.Session
@@ -35,6 +38,7 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
         ObjectContentManager ocm
         if ("xml".equalsIgnoreCase((String) grailsApplication.config.grails.jcr.plugin.ocm.strategy)) {
             ocm =  new ObjectContentManagerImpl(session, consumeAnnotationMapper());
+
         } else {
             ocm =  new ObjectContentManagerImpl(session, consumeXmlConfigMapper());
         }
@@ -42,11 +46,33 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
         return ocm
     }
 
-    private Mapper consumeAnnotationMapper() {
+    /**
+     * Load the object mapping configuration.
+     * This method will merge the XML configuration into annotated
+     * object if the strategy is "xml" since the object content manager
+     * is expecting it in Mapper.
+     *
+     * @return A Mapper containing all the mapped objects
+     */
+    private Mapper loadObjectMappings() {
+        // first load the plugin's object mapping, which will be using
+        // annotation to map the objects
+        Mapper pluginsObjectMapping = AnnotationDescriptorReader()
 
+
+
+
+        Mapper mapper
+        String[] mapping = grailsApplication.config.grails.jcr.plugin.ocm.mapping
+        if ("xml".equalsIgnoreCase((String) grailsApplication.config.grails.jcr.plugin.ocm.strategy)) {
+            mapper = new DigesterDescriptorReader(mapping)
+        } else {
+            mapper = new AnnotationDescriptorReader(mapping)
+        }
+
+
+
+        return mapper
     }
 
-    public String[] consumeXmlConfigMapper() {
-
-    }
 }

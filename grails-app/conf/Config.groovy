@@ -25,7 +25,7 @@ log4j = {
 
 // Default object content mapping strategy
 grails.jcr.plugin.ocm.strategy = "xml"  // 'xml' or 'annotation'
-grails.jcr.plugin.ocm.mapping = []  // an array to the mapping files
+grails.jcr.plugin.ocm.mapping = []  // a list of either xml files or classes depending on strategy
 
 // Default repository configuration
 grails.jcr.plugin.repo.host = "http://localhost:4502"
