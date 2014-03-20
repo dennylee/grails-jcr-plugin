@@ -9,7 +9,8 @@ import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
  * all nodes.  Probably contains most of the "jcr:*" attributes.
  */
 @Node(isAbstract = true, discriminator = false)
-class JcrNode {
+class JcrNode implements Serializable {
+
     @Field(path = true)
     String path
 

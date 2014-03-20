@@ -3,12 +3,15 @@ package com.ea.core
 import org.apache.commons.pool.BasePoolableObjectFactory
 import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.ObjectContentManager
+import org.apache.jackrabbit.ocm.manager.cache.impl.RequestObjectCacheImpl
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
+import org.apache.jackrabbit.ocm.mapper.DescriptorReader
 import org.apache.jackrabbit.ocm.mapper.Mapper
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationDescriptorReader
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
 import org.apache.jackrabbit.ocm.mapper.impl.digester.DigesterDescriptorReader
 import org.apache.jackrabbit.ocm.mapper.impl.digester.DigesterMapperImpl
+import org.apache.jackrabbit.ocm.mapper.model.MappingDescriptor
 
 import javax.jcr.Repository
 import javax.jcr.Session
@@ -19,7 +22,20 @@ import javax.jcr.SimpleCredentials
  */
 public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
     def grailsApplication
-    private ObjectContentManager ocm
+    private MappingDescriptor mappingDescriptor
+
+    @Override
+    void passivateObject(Object obj) throws Exception {
+        // clear ocm object cache
+        // TODO: no..lets not do this
+        ((ObjectContentManagerImpl) obj).setRequestObjectCache(new RequestObjectCacheImpl())
+    }
+
+    @Override
+    void destroyObject(Object obj) throws Exception {
+        // logout and close out the connection
+        ((ObjectContentManagerImpl) obj).logout()
+    }
 
     @Override
     Object makeObject() throws Exception {
@@ -34,45 +50,27 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
                 creds,
                 (String) grailsApplication.config.grails.jcr.plugin.repo.workspace);
 
+        // load the object mapping configuration
+        loadCommonObjectMappings()
+        loadExternalObjectMappings()
+
         // decide if we'll be using annotation or xml config files
-        ObjectContentManager ocm
-        if ("xml".equalsIgnoreCase((String) grailsApplication.config.grails.jcr.plugin.ocm.strategy)) {
-            ocm =  new ObjectContentManagerImpl(session, consumeAnnotationMapper());
-
-        } else {
-            ocm =  new ObjectContentManagerImpl(session, consumeXmlConfigMapper());
-        }
-
-        return ocm
+        return new ObjectContentManagerImpl(session, mappingDescriptor.getMapper())
     }
 
     /**
-     * Load the object mapping configuration.
-     * This method will merge the XML configuration into annotated
-     * object if the strategy is "xml" since the object content manager
-     * is expecting it in Mapper.
-     *
-     * @return A Mapper containing all the mapped objects
+     * Reads and loads the common object mappings
      */
-    private Mapper loadObjectMappings() {
-        // first load the plugin's object mapping, which will be using
-        // annotation to map the objects
-        Mapper pluginsObjectMapping = AnnotationDescriptorReader()
+    private void loadObjectMappings() {
+        // load plugin's common object mappings
+        ConfigSlurper configSlurper = new ConfigSlurper().parse(new File("CommonObjectMapping.groovy"))
+        List<Class> commonClasses = new ArrayList<Class>()
+        commonClasses.addAll(configSlurper.grails.jcr.plugin.ocm.common as List)
 
+        DescriptorReader dr = new AnnotationDescriptorReader(commonClasses)
+        mappingDescriptor = dr.loadClassDescriptors()
 
-
-
-        Mapper mapper
-        String[] mapping = grailsApplication.config.grails.jcr.plugin.ocm.mapping
-        if ("xml".equalsIgnoreCase((String) grailsApplication.config.grails.jcr.plugin.ocm.strategy)) {
-            mapper = new DigesterDescriptorReader(mapping)
-        } else {
-            mapper = new AnnotationDescriptorReader(mapping)
-        }
-
-
-
-        return mapper
+        // load external object mappings
+        // TODO: Load the external object mappings...how?
     }
-
 }

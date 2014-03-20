@@ -6,7 +6,7 @@ import org.apache.jackrabbit.ocm.mapper.impl.annotation.Field
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
 
 @Node(jcrType = CqConstants.NT_UNSTRUCTURED, extend = JcrNode.class, discriminator = false)
-class Text extends JcrNode {
+class Text extends JcrNode implements Serializable {
     @Field(jcrName = "text")
     private String text
 

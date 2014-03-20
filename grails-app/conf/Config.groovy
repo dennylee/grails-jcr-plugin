@@ -1,3 +1,5 @@
+import org.apache.commons.pool.impl.GenericObjectPool
+
 // configuration for plugin testing - will not be included in the plugin zip
 
 log4j = {
@@ -23,15 +25,19 @@ log4j = {
     warn   'org.mortbay.log'
 }
 
-// Default object content mapping strategy
+// Default object content mapping configuration
 grails.jcr.plugin.ocm.strategy = "xml"  // 'xml' or 'annotation'
 grails.jcr.plugin.ocm.mapping = []  // a list of either xml files or classes depending on strategy
+
+// Default pooling configuration
+grails.jcr.plugin.ocm.pool.timeBetweenEvictionRuns = 60000 // ms
+grails.jcr.plugin.ocm.pool.minEvictableIdleTime = 300000 // ms
+grails.jcr.plugin.ocm.pool.maxActive = 0    // max number of objects that can be borrowed from pool at one time
+grails.jcr.plugin.ocm.pool.whenExhaustedAction = GenericObjectPool.WHEN_EXHAUSTED_GROW  // action to take when pool is exhausted
+grails.jcr.plugin.ocm.pool.maxIdle = 8 // max number of idle objects in pool
 
 // Default repository configuration
 grails.jcr.plugin.repo.host = "http://localhost:4502"
 grails.jcr.plugin.repo.username = "admin"
 grails.jcr.plugin.repo.password = "admin"
 grails.jcr.plugin.repo.workspace = "crx.default"
-
-// Default connection pool configuration
-

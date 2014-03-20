@@ -11,6 +11,16 @@ import org.apache.jackrabbit.ocm.query.Query
 public interface PersistentManager {
 
     /**
+     * Initialize the persistent manager
+     */
+    public void init();
+
+    /**
+     * Safely close all the pooling connections
+     */
+    public void destory();
+
+    /**
      * Get an object from the JCR repository
      *
      * @param path
