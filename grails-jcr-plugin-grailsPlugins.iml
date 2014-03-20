@@ -23,10 +23,21 @@
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (grails-jcr-plugin-grailsPlugins)">
         <CLASSES>
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.jcr/jcr/jars/jcr-2.0.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-digester/commons-digester/jars/commons-digester-1.7.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-ocm/jars/jackrabbit-ocm-1.5.3.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-jcr-commons/bundles/jackrabbit-jcr-commons-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/javax.jcr/jcr/jars/jcr-2.0.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi2jcr/jars/jackrabbit-spi2jcr-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-logging/commons-logging/jars/commons-logging-1.0.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-httpclient/commons-httpclient/jars/commons-httpclient-3.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-webdav/bundles/jackrabbit-webdav-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi2dav/jars/jackrabbit-spi2dav-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-jcr2spi/bundles/jackrabbit-jcr2spi-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-jcr2dav/jars/jackrabbit-jcr2dav-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.slf4j/slf4j-api/jars/slf4j-api-1.6.6.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi/jars/jackrabbit-spi-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi-commons/bundles/jackrabbit-spi-commons-2.7.4.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-digester/commons-digester/jars/commons-digester-1.7.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/nekohtml/nekohtml/jars/nekohtml-1.9.6.2.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/nekohtml/xercesMinimal/jars/xercesMinimal-1.9.6.2.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.maven.wagon/wagon-http-shared/jars/wagon-http-shared-1.0-beta-6.jar!/" />
@@ -48,24 +59,10 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.plexus/plexus-container-default/jars/plexus-container-default-1.0-alpha-9-stable-1.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/classworlds/classworlds/jars/classworlds-1.1-alpha-2.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.maven/maven-ant-tasks/jars/maven-ant-tasks-2.1.3.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-logging/commons-logging/jars/commons-logging-1.0.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/commons-httpclient/commons-httpclient/jars/commons-httpclient-3.1.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi2jcr/jars/jackrabbit-spi2jcr-2.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-webdav/bundles/jackrabbit-webdav-2.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi2dav/jars/jackrabbit-spi2dav-2.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-jcr2spi/bundles/jackrabbit-jcr2spi-2.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-jcr2dav/jars/jackrabbit-jcr2dav-2.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.slf4j/slf4j-api/jars/slf4j-api-1.6.6.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi/jars/jackrabbit-spi-2.7.4.jar!/" />
-          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.apache.jackrabbit/jackrabbit-spi-commons/bundles/jackrabbit-spi-commons-2.7.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.ideaLibSources/jcr-2.0-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-jcr-commons-2.7.4-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-ocm-1.5.3-sources.jar!/" />
-          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-jcr2spi-2.7.4-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

@@ -42,12 +42,12 @@ class MainTestTests {
         //Workspace Login
         SimpleCredentials creds = new SimpleCredentials("admin", "admin".toCharArray());
         Session session = repository.login(creds, "crx.default");
-        session.getWorkspace().getNamespaceRegistry().registerNamespace("ocm", "http://jackrabbit.apache.org/ocm");
+//        session.getWorkspace().getNamespaceRegistry().registerNamespace("ocm", "http://jackrabbit.apache.org/ocm");
 
         //List Children
         System.out.println("Workspace: " + session.getWorkspace().getName() + "\n");
 
-        ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader());
+//        ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         List<Class> classes = new ArrayList<Class>();
 //        classes.add(PageContent.class)

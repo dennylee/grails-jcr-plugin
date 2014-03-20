@@ -23,9 +23,15 @@ log4j = {
     warn   'org.mortbay.log'
 }
 
-// configuration
-environments {
-    development {
-        host = 'http://bur2-d1036236.eac.ad.ea.com:4502/crx/server'
-    }
-}
+// Default object content mapping strategy
+grails.jcr.plugin.ocm.strategy = "xml"  // 'xml' or 'annotation'
+grails.jcr.plugin.ocm.mapping = []  // an array to the mapping files
+
+// Default repository configuration
+grails.jcr.plugin.repo.host = "http://localhost:4502"
+grails.jcr.plugin.repo.username = "admin"
+grails.jcr.plugin.repo.password = "admin"
+grails.jcr.plugin.repo.workspace = "crx.default"
+
+// Default connection pool configuration
+
