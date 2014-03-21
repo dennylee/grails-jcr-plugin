@@ -41,7 +41,7 @@ public class PersistentManagerImpl implements PersistentManager {
     public void init() {
         def config = grailsApplication.config.grails.jcr.plugin.ocm.pool
 
-        sessionFactory = new DefaultPoolableOcmFactory()
+        sessionFactory = new DefaultPoolableOcmFactory(grailsApplication)
         ocmPool = new GenericObjectPool(sessionFactory ,0, GenericObjectPool.WHEN_EXHAUSTED_GROW, 0, 5);
 
         ocmPool.setTimeBetweenEvictionRunsMillis((Long) config.timeBetweenEvictionRuns);

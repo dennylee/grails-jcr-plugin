@@ -36,7 +36,8 @@ grails.jcr.plugin.ocm.pool.maxActive = 0    // max number of objects that can be
 grails.jcr.plugin.ocm.pool.maxIdle = 8 // max number of idle objects in pool
 
 // Default repository configuration
-grails.jcr.plugin.repo.host = "http://localhost:4502"
+grails.jcr.plugin.repo.host = "http://bur2-d1036236.eac.ad.ea.com:4502"
+grails.jcr.plugin.repo.path = "/crx/server"
 grails.jcr.plugin.repo.username = "admin"
 grails.jcr.plugin.repo.password = "admin"
 grails.jcr.plugin.repo.workspace = "crx.default"

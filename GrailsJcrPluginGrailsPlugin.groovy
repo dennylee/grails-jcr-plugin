@@ -64,6 +64,10 @@ Brief summary/description of the plugin.
 
         PersistentManager pm = new PersistentManagerImpl(applicationContext.grailsApplication)
         pm.init()
+
+
+        Object o = pm.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        def x = 'h'
     }
 
     def onChange = { event ->

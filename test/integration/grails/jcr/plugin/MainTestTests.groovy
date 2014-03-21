@@ -37,8 +37,8 @@ class MainTestTests {
 
     @Test
     void testMain() {
-//        String host = "http://bur2-d1036236.eac.ad.ea.com:4502/crx/server"
-        String host = "http://localhost:4502/crx/server"
+        String host = "http://bur2-d1036236.eac.ad.ea.com:4502/crx/server"
+//        String host = "http://localhost:4502/crx/server"
         Repository repository = JcrUtils.getRepository(host)
 
         //Workspace Login
