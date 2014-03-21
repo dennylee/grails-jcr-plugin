@@ -1,13 +1,11 @@
 package com.ea.core
 
+import grails.util.GrailsUtil
 import org.apache.commons.pool.BasePoolableObjectFactory
 import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
-import org.apache.jackrabbit.ocm.mapper.DescriptorReader
 import org.apache.jackrabbit.ocm.mapper.Mapper
-import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationDescriptorReader
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
-import org.apache.jackrabbit.ocm.mapper.model.MappingDescriptor
 import org.apache.jackrabbit.ocm.reflection.ReflectionUtils
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
@@ -20,8 +18,12 @@ import javax.jcr.SimpleCredentials
  */
 public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
     private GrailsApplication grailsApplication
-    private Mapper mapper
 
+    /**
+     * Default constructor
+     *
+     * @param grailsApplication GrailsApplication which contains the configuration values
+     */
     public DefaultPoolableOcmFactory(GrailsApplication grailsApplication) {
         this.grailsApplication = grailsApplication
     }
@@ -34,37 +36,37 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
 
     @Override
     Object makeObject() throws Exception {
-        def config = grailsApplication.config.grails.jcr.plugin.repo
-        Repository repo = JcrUtils.getRepository(config.host + config.path)
+        def config = grailsApplication.config.grailsJcrPluginDataSource
 
+        // create repo
+        String host = config.host + config.path
+        Repository repo = JcrUtils.getRepository(host)
         SimpleCredentials creds = new SimpleCredentials((String) config.username, ((String) config.password)?.toCharArray())
 
+        // create session to repo
         Session session = repo.login(creds,(String) config.workspace);
 
-        // load the object mapping configuration
-        loadObjectMappings()
-//        loadExternalObjectMappings()
-
-        // decide if we'll be using annotation or xml config files
-        return new ObjectContentManagerImpl(session, mapper)
+        log.debug "Creating new ocm connection: host=${host}, username=${config.username}"
+        return new ObjectContentManagerImpl(session, loadObjectMappings())
     }
 
     /**
-     * Reads and loads the common object mappings
+     * Reads and loads the common object mappings and mappings made outside of this plugin
      */
-    private void loadObjectMappings() {
+    private Mapper loadObjectMappings() {
         // load plugin's common object mappings
-        ConfigObject configSlurper = new ConfigSlurper().parse(new File("grails-app/conf/CommonObjectMapping.groovy").toURL())
+        def classLoader = new GroovyClassLoader(getClass().classLoader)
+        def config = new ConfigSlurper().parse(classLoader.loadClass('CommonObjectMapping'))
+
         List<Class> commonClasses = new ArrayList<Class>()
-        commonClasses.addAll(configSlurper.grails.jcr.plugin.ocm.mapping.common as List)
+        commonClasses.addAll(config.grails.jcr.plugin.ocm.mapping.common)
 
-//        commonClasses.add(com.ea.core.JcrNode.class)
-        ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader());
-        mapper = new AnnotationMapperImpl(commonClasses)
-
-
+        ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader()); // TODO: unsure why this is necessary
+        Mapper mapper = new AnnotationMapperImpl(commonClasses)
 
         // load external object mappings
         // TODO: Load the external object mappings...how?
+
+        return mapper
     }
 }

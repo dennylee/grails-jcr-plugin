@@ -1,43 +1,26 @@
-dataSource {
-    pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+// default settings, can be changed based on different environments
+grailsJcrPluginDataSource {
+    host = "http://localhost:4502"
+    path = "/crx/server"
+    username = "admin"
+    password = "admin"
+    workspace = "crx.default"
+    properties {
+        maxActive = 0   // max number of objects that can be borrowed from pool at one time
+        maxIdle = 8 // max number of idle objects in pool (ms)
+        minEvictableIdleTimeMillis=300000
+        timeBetweenEvictionRunsMillis=60000
+
+        strategy = "xml"  // strategy for mapping POJO from JCR Node: 'xml' or 'annotation'
+        mapping = []  // a list of either xml files or classes depending on strategy
+    }
 }
-hibernate {
-    cache.use_second_level_cache = true
-    cache.use_query_cache = false
-    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
-}
+
 // environment specific settings
 environments {
     development {
-        dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-        }
-    }
-    test {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-        }
-    }
-    production {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-            pooled = true
-            properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=true
-               validationQuery="SELECT 1"
-            }
+        grailsJcrPluginDataSource {
+            host = "http://bur2-d1036236.eac.ad.ea.com:4502"
         }
     }
 }

@@ -6,54 +6,45 @@ import org.apache.jackrabbit.ocm.exception.ObjectContentManagerException
 import org.apache.jackrabbit.ocm.query.Query
 import org.apache.jackrabbit.ocm.manager.ObjectContentManager
 import org.codehaus.groovy.grails.commons.GrailsApplication
-import org.springframework.beans.factory.InitializingBean
 
 /**
- * The implementation for the persistent manager.
- * This manager will be handle pooling of the connection to JCR repository and
+ * The implementation for the JCR persistent service.
+ * This service will be handle pooling of the connection to JCR repository and
  * the cache mechanism to be used to cache the results.  This class is a singleton
  * as it manages the pooling and caching of all connection to JCR repository.
  */
-public class PersistentManagerImpl implements PersistentManager {
+public class JcrPersistentServiceImpl implements JcrPersistentService {
     static transactional = false
+
     GrailsApplication grailsApplication
-
-    // pool of object content managers
-    private GenericObjectPool ocmPool
-
-    // poolable object factory
-    private PoolableObjectFactory sessionFactory
-
-    private Map configs = new HashMap<String, String>()
-
-    public PersistentManagerImpl() {
-//        this.grailsApplication = grailsApplication
-//        sessionFactory = new DefaultPoolableOcmFactory()
-        def config = 'grailsApplication.config.grails.jcr.plugin.ocm.pool'
-//        ocmPool = GenericObjectPool(sessionFactory ,0, GenericObjectPool.WHEN_EXHAUSTED_GROW, 0, 5);
-    }
-
-    public PersistentManagerImpl(GrailsApplication grailsApplication) {
-        this.grailsApplication = grailsApplication
-    }
+    private GenericObjectPool ocmPool   // pool of object content managers
+    private PoolableObjectFactory sessionFactory    // poolable object factory
 
     @Override
-    public void init() {
-        def config = grailsApplication.config.grails.jcr.plugin.ocm.pool
+    public void startup() {
+        def config = grailsApplication.config.grailsJcrPluginDataSource.properties
 
+        // initialize the pooler containing object content manager
         sessionFactory = new DefaultPoolableOcmFactory(grailsApplication)
-        ocmPool = new GenericObjectPool(sessionFactory ,0, GenericObjectPool.WHEN_EXHAUSTED_GROW, 0, 5);
+        ocmPool = new GenericObjectPool(
+                sessionFactory,
+                (Integer) config.maxActive,
+                GenericObjectPool.WHEN_EXHAUSTED_GROW,
+                0,
+                (Integer) config.maxIdle);
 
-        ocmPool.setTimeBetweenEvictionRunsMillis((Long) config.timeBetweenEvictionRuns);
-        ocmPool.setMinEvictableIdleTimeMillis((Long) config.timeBetweenEvictionRuns);
+        ocmPool.setTimeBetweenEvictionRunsMillis((Long) config.timeBetweenEvictionRunsMillis);
+        ocmPool.setMinEvictableIdleTimeMillis((Long) config.minEvictableIdleTimeMillis);
+        log.info "JcrPersistentService startup: success"
     }
 
     @Override
-    public void destroy() {
+    public void shutdown() {
         try {
             ocmPool?.close()
+            log.info "JcrPersistentService shutdown: success"
         } catch (Exception e) {
-            throw new RuntimeException("Unable to destroy: ${e.getMessage()}", e)
+            log.error "JcrPersistentService shutdown: failed - ${e.getMessage()}"
         }
     }
 
@@ -88,6 +79,11 @@ public class PersistentManagerImpl implements PersistentManager {
         return getOcmFromPool().getObjects(query, language)
     }
 
+    /**
+     * Helper method which will return as ObjectContentManager by casting
+     *
+     * @return A ObjectContentManager
+     */
     private ObjectContentManager getOcmFromPool() {
         return (ObjectContentManager) ocmPool.borrowObject()
     }

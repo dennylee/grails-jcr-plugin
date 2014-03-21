@@ -1,5 +1,6 @@
-import com.ea.core.PersistentManager
-import com.ea.core.PersistentManagerImpl
+import com.ea.core.JcrPersistentService
+import com.ea.core.JcrPersistentServiceImpl
+import com.ea.core.JcrPersistentServiceImpl
 import grails.util.GrailsUtil
 
 class GrailsJcrPluginGrailsPlugin {
@@ -15,11 +16,12 @@ class GrailsJcrPluginGrailsPlugin {
     ]
 
     // TODO Fill in these fields
-    def title = "Grails Jcr Plugin Plugin" // Headline display name of the plugin
-    def author = "Your name"
-    def authorEmail = ""
+    def title = "Grails Jcr Plugin" // Headline display name of the plugin
+    def author = "EA Pulse - Team Black"
+    def authorEmail = "dlee@contractor.ea.com"
     def description = '''\
-Brief summary/description of the plugin.
+A grails plugin which is able to query against JCR repository.  The plugin will have the ability to use other cache
+providers and the sessions communication to JCR repository is pooled.
 '''
 
     // URL to the plugin's documentation
@@ -50,7 +52,9 @@ Brief summary/description of the plugin.
         // TODO Implement runtime spring config (optional)
 
         loadConfig(application.config)
-        persistentManager(PersistentManagerImpl) {
+
+        // create bean in spring context
+        jcrPersistentService(JcrPersistentServiceImpl) {
             grailsApplication = application
         }
     }
@@ -62,12 +66,8 @@ Brief summary/description of the plugin.
     def doWithApplicationContext = { applicationContext ->
         // TODO Implement post initialization spring config (optional)
 
-        PersistentManager pm = new PersistentManagerImpl(applicationContext.grailsApplication)
-        pm.init()
-
-
-        Object o = pm.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
-        def x = 'h'
+        ((JcrPersistentService) applicationContext.getBean("jcrPersistentService")).startup()
+        println "JcrPersistentService startup status: Success"
     }
 
     def onChange = { event ->
@@ -83,6 +83,8 @@ Brief summary/description of the plugin.
 
     def onShutdown = { event ->
         // TODO Implement code that is executed when the application shuts down (optional)
+        ((JcrPersistentService) application.mainContext.getBean("jcrPersistentService")).shutdown()
+        println "JcrPersistentService shutdown status: Success"
     }
 
     private ConfigObject loadConfig(config) {

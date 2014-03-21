@@ -6,19 +6,19 @@ import org.apache.jackrabbit.ocm.query.Query
 /**
  * Defines the methods that could communicate with the JCR repository.
  * Most of the methods are 'Get' calls because the plugin is designed
- * to only retrieve data from CQ5 and not update or persist them.
+ * to only retrieve data from CQ5, not update nor persist them.
  */
-public interface PersistentManager {
+public interface JcrPersistentService {
 
     /**
-     * Initialize the persistent manager
+     * Starts up the service
      */
-    public void init();
-
+    public void startup()
+    
     /**
-     * Safely close all the pooling connections
+     * Shutsdown the service
      */
-    public void destroy();
+    public void shutdown()
 
     /**
      * Get an object from the JCR repository
@@ -30,7 +30,7 @@ public interface PersistentManager {
      * @throws ObjectContentManagerException
      *             when it is not possible to retrieve the object
      */
-    public Object getObject(String path) throws ObjectContentManagerException;
+    public Object getObject(String path) throws ObjectContentManagerException
 
     /**
      * Get an object from the JCR repository
@@ -44,7 +44,7 @@ public interface PersistentManager {
      * @throws ObjectContentManagerException
      *             when it is not possible to retrieve the object
      */
-    public Object getObject(Class objectClass, String path) throws ObjectContentManagerException;
+    public Object getObject(Class objectClass, String path) throws ObjectContentManagerException
 
     /**
      * Retrieve an object matching to a query
@@ -56,7 +56,7 @@ public interface PersistentManager {
      *             when it is not possible to retrieve the object
      *
      */
-    public Object getObject(Query query) throws ObjectContentManagerException;
+    public Object getObject(Query query) throws ObjectContentManagerException
 
     /**
      * Retrieve some objects matching to a query
@@ -68,7 +68,7 @@ public interface PersistentManager {
      *             when it is not possible to retrieve the objects
      *
      */
-    public Collection getObjects(Query query) throws ObjectContentManagerException;
+    public Collection getObjects(Query query) throws ObjectContentManagerException
 
     /**
      * Returns a list of objects of that particular class which are associated to a specific path.
@@ -80,7 +80,7 @@ public interface PersistentManager {
      * @return a collection of object found
      */
 
-    public Collection getObjects(Class objectClass, String path) throws ObjectContentManagerException;
+    public Collection getObjects(Class objectClass, String path) throws ObjectContentManagerException
 
     /**
      * Return a list of object matching to a JCR query
@@ -89,5 +89,5 @@ public interface PersistentManager {
      * @param language the JCR Language ("XPATH" or "SQL").
      * @return
      */
-    public Collection getObjects(String query, String language);
+    public Collection getObjects(String query, String language)
 }

@@ -1,17 +1,14 @@
 package grails.jcr.plugin
 
 import com.ea.core.JcrNode
-import com.ea.core.PersistentManager
-import com.ea.core.components.Header
+import com.ea.core.JcrPersistentService
 import com.ea.core.components.Text
 import com.ea.core.page.CharacterPage
-import com.ea.core.pageContent.PageContent
 import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.ObjectContentManager
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
 import org.apache.jackrabbit.ocm.mapper.Mapper
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
-import org.apache.jackrabbit.ocm.reflection.ReflectionUtils
 
 import javax.jcr.NodeIterator
 import javax.jcr.Repository
@@ -95,8 +92,7 @@ class MainTestTests {
 
     @Test
     void test_plugin() {
-        PersistentManager pm = (PersistentManager) grailsApplication.mainContext.getBean('persistentManager')
-        Object o = pm.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
-        grailsApplication.mainContext
+        def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+        Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
     }
 }
