@@ -1,6 +1,7 @@
 package grails.jcr.plugin
 
 import com.ea.core.JcrNode
+import com.ea.core.PersistentManager
 import com.ea.core.components.Header
 import com.ea.core.components.Text
 import com.ea.core.page.CharacterPage
@@ -22,6 +23,7 @@ import static org.junit.Assert.*
 import org.junit.*
 
 class MainTestTests {
+    def grailsApplication
 
     @Before
     void setUp() {
@@ -89,5 +91,12 @@ class MainTestTests {
         }
 
         assertTrue(true)
+    }
+
+    @Test
+    void test_plugin() {
+        PersistentManager pm = (PersistentManager) grailsApplication.mainContext.getBean('persistentManager')
+        Object o = pm.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        grailsApplication.mainContext
     }
 }

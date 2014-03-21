@@ -2,15 +2,9 @@ package com.ea.core
 
 import org.apache.commons.pool.BasePoolableObjectFactory
 import org.apache.jackrabbit.commons.JcrUtils
-import org.apache.jackrabbit.ocm.manager.ObjectContentManager
-import org.apache.jackrabbit.ocm.manager.cache.impl.RequestObjectCacheImpl
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
 import org.apache.jackrabbit.ocm.mapper.DescriptorReader
-import org.apache.jackrabbit.ocm.mapper.Mapper
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationDescriptorReader
-import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
-import org.apache.jackrabbit.ocm.mapper.impl.digester.DigesterDescriptorReader
-import org.apache.jackrabbit.ocm.mapper.impl.digester.DigesterMapperImpl
 import org.apache.jackrabbit.ocm.mapper.model.MappingDescriptor
 
 import javax.jcr.Repository
@@ -23,13 +17,6 @@ import javax.jcr.SimpleCredentials
 public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
     def grailsApplication
     private MappingDescriptor mappingDescriptor
-
-    @Override
-    void passivateObject(Object obj) throws Exception {
-        // clear ocm object cache
-        // TODO: no..lets not do this
-        ((ObjectContentManagerImpl) obj).setRequestObjectCache(new RequestObjectCacheImpl())
-    }
 
     @Override
     void destroyObject(Object obj) throws Exception {

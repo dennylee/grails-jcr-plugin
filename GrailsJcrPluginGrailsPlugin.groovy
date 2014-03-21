@@ -1,3 +1,7 @@
+import com.ea.core.PersistentManager
+import com.ea.core.PersistentManagerImpl
+import grails.util.GrailsUtil
+
 class GrailsJcrPluginGrailsPlugin {
     // the plugin version
     def version = "0.1"
@@ -44,6 +48,11 @@ Brief summary/description of the plugin.
 
     def doWithSpring = {
         // TODO Implement runtime spring config (optional)
+
+        loadConfig(application.config)
+        persistentManager(PersistentManagerImpl) {
+            grailsApplication = application
+        }
     }
 
     def doWithDynamicMethods = { ctx ->
@@ -52,6 +61,9 @@ Brief summary/description of the plugin.
 
     def doWithApplicationContext = { applicationContext ->
         // TODO Implement post initialization spring config (optional)
+
+        PersistentManager pm = new PersistentManagerImpl(applicationContext.grailsApplication)
+        pm.init()
     }
 
     def onChange = { event ->
@@ -67,5 +79,10 @@ Brief summary/description of the plugin.
 
     def onShutdown = { event ->
         // TODO Implement code that is executed when the application shuts down (optional)
+    }
+
+    private ConfigObject loadConfig(config) {
+        def classLoader = new GroovyClassLoader(getClass().classLoader)
+        config.merge(new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('Config')).merge(config))
     }
 }

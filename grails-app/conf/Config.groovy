@@ -33,7 +33,6 @@ grails.jcr.plugin.ocm.mapping = []  // a list of either xml files or classes dep
 grails.jcr.plugin.ocm.pool.timeBetweenEvictionRuns = 60000 // ms
 grails.jcr.plugin.ocm.pool.minEvictableIdleTime = 300000 // ms
 grails.jcr.plugin.ocm.pool.maxActive = 0    // max number of objects that can be borrowed from pool at one time
-grails.jcr.plugin.ocm.pool.whenExhaustedAction = GenericObjectPool.WHEN_EXHAUSTED_GROW  // action to take when pool is exhausted
 grails.jcr.plugin.ocm.pool.maxIdle = 8 // max number of idle objects in pool
 
 // Default repository configuration

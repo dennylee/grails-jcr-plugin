@@ -18,7 +18,7 @@ public interface PersistentManager {
     /**
      * Safely close all the pooling connections
      */
-    public void destory();
+    public void destroy();
 
     /**
      * Get an object from the JCR repository
