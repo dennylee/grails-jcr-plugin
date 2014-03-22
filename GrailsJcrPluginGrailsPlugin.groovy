@@ -15,8 +15,7 @@ class GrailsJcrPluginGrailsPlugin {
             "grails-app/views/error.gsp"
     ]
 
-    // TODO Fill in these fields
-    def title = "Grails Jcr Plugin" // Headline display name of the plugin
+    def title = "Grails JCR Plugin" // Headline display name of the plugin
     def author = "EA Pulse - Team Black"
     def authorEmail = "dlee@contractor.ea.com"
     def description = '''\
@@ -66,7 +65,7 @@ providers and the sessions communication to JCR repository is pooled.
     def doWithApplicationContext = { applicationContext ->
         // TODO Implement post initialization spring config (optional)
 
-        ((JcrPersistentService) applicationContext.getBean("jcrPersistentService")).startup()
+        ((JcrPersistentServiceImpl) applicationContext.getBean("jcrPersistentService")).startup()
         println "JcrPersistentService startup status: Success"
     }
 
@@ -83,12 +82,17 @@ providers and the sessions communication to JCR repository is pooled.
 
     def onShutdown = { event ->
         // TODO Implement code that is executed when the application shuts down (optional)
-        ((JcrPersistentService) application.mainContext.getBean("jcrPersistentService")).shutdown()
+        ((JcrPersistentServiceImpl) application.mainContext.getBean("jcrPersistentService")).shutdown()
         println "JcrPersistentService shutdown status: Success"
     }
 
     private ConfigObject loadConfig(config) {
         def classLoader = new GroovyClassLoader(getClass().classLoader)
+
+        // merge plugin's config
         config.merge(new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('Config')).merge(config))
+
+        // merge plugin's cache config
+        config.merge(new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('GrailsJcrPluginCacheConfig')).merge(config))
     }
 }

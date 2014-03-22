@@ -1,6 +1,5 @@
 package com.ea.core
 
-import grails.util.GrailsUtil
 import org.apache.commons.pool.BasePoolableObjectFactory
 import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
@@ -47,6 +46,7 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
         Session session = repo.login(creds,(String) config.workspace);
 
         log.debug "Creating new ocm connection: host=${host}, username=${config.username}"
+        println "Creating new ocm connection: host=${host}, username=${config.username}"
         return new ObjectContentManagerImpl(session, loadObjectMappings())
     }
 

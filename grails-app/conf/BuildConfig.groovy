@@ -57,5 +57,8 @@ grails.project.dependency.resolution = {
               ":rest-client-builder:1.0.3") {
             export = false
         }
+
+        compile ":cache:1.1.1"
+        compile ":cache-ehcache:1.0.0"
     }
 }

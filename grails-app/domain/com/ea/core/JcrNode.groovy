@@ -10,6 +10,7 @@ import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
  */
 @Node(isAbstract = true, discriminator = false)
 class JcrNode implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Field(path = true)
     String path

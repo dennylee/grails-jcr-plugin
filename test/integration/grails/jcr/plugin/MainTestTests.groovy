@@ -94,5 +94,32 @@ class MainTestTests {
     void test_plugin() {
         def x = grailsApplication.mainContext.getBean("jcrPersistentService")
         Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        Object o1 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+    }
+
+    @Test
+    void test_load() {
+        Thread[] threads = new Thread[1000];
+        for (int i =0 ; i < threads.length; i++) {
+            threads[i] = new Thread( new Runnable() {
+
+                @Override
+                void run() {
+                      output()
+//                    assertEquals('14da448f9-8f3b-4fb2-bd5f-d44f495b9610', o.uuid)
+                }
+            })
+        }
+
+        for (int i=0; i < threads.length; i++) {
+            threads[i].start()
+        }
+
+    }
+
+    public final void output() {
+        def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+        Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+//        println("in thread : ${o.uuid}")
     }
 }

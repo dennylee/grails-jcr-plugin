@@ -13,7 +13,8 @@ import com.ea.core.JcrNode
  * Demo of a character page
  */
 @Node(jcrType = CqConstants.CQ_PAGECONTENT, jcrMixinTypes = JcrConstants.JCR_CONTENT, extend = JcrNode.class, discriminator = false)
-class CharacterPage extends JcrNode {
+class CharacterPage extends JcrNode implements Serializable{
+    private static final long serialVersionUID = 1L;
 
     @Bean(jcrType = CqConstants.NT_UNSTRUCTURED, jcrOnParentVersion="IGNORE")
     private Text contentText
