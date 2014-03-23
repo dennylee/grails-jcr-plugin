@@ -1,8 +1,8 @@
 package grails.jcr.plugin
 
-import com.ea.core.JcrNode
+import com.p4f.jcr.JcrNode
 import com.ea.core.JcrPersistentService
-import com.ea.core.components.Text
+import com.p4f.jcr.components.Text
 import com.ea.core.page.CharacterPage
 import org.apache.jackrabbit.commons.JcrUtils
 import org.apache.jackrabbit.ocm.manager.ObjectContentManager
@@ -93,19 +93,142 @@ class MainTestTests {
     @Test
     void test_plugin() {
         def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+        println "2 - ${x.ocmPool}"
         Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
         Object o1 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        Object o2 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        Object o3 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        Object o4 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        println "half way"
+        Object o5 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        Object o6 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        Object o7 = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        println "done"
+
+    }
+
+
+    @Test
+    void test_newLoad() {
+
+//        int t = 100
+//        final ScheduledExecutorService exec =
+//            Executors.newScheduledThreadPool(t);
+//
+//            // Schedule first task
+//        for (int i =0; i < t; i++) {
+//            exec.scheduleAtFixedRate(new Thread() {
+//                @Override
+//                public void run() {
+//                    start()
+//                }
+//
+//                @Override
+//                synchronized void start() {
+//                    def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+//                    Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+//                    println "${i} - ${o.uuid}"
+//                }
+//            }, 10, 1, TimeUnit.MILLISECONDS);
+//
+//    }
+
+            // Schedule second task
+//            exec.scheduleAtFixedRate(new Runnable(){
+//                @Override
+//                public void run() {
+//                    println "bbb"
+//                }}, 0, 1, TimeUnit.MINUTES);
+
+    for (int j=0; j < 5; j++) {
+        Thread[] t = new Thread[10]
+        for (int i=0; i < t.length; i++) {
+
+            t[i] = new Thread(new Runnable() {
+                @Override
+                void run() {
+                    Thread.sleep(500)
+                    def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+                    Object y = x.getObject(CharacterPage.class, '/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+                    println "y - ${y.uuid}"
+                    Object z = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+                    println "z - ${z.uuid}"
+
+                }
+            })
+        }
+
+
+        for (int i=0; i < t.length; i++) {
+            t[i].run()
+        }
+        Thread.sleep(1000)
+    }
+    }
+
+    private void spawnThreads(int threads) {
+        Thread[] t = new Thread[threads]
+        for (int i=0; i < t.length; i++) {
+
+            t[i] = new Thread(new Runnable() {
+                @Override
+                void run() {
+//                    Thread.sleep(500)
+                    def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+                    def abc = (new Random()).nextInt()
+//                    if (abc % 2 == 0) {
+                    Object y = x.getObject(CharacterPage.class, '/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+                    println "even ${abc} - ${y.uuid}"
+//                        Thread.sleep(200)
+//                }
+                    Object z = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+                    println "odd ${abc} - ${z.uuid}"
+//                        Thread.sleep(800)
+
+
+                }
+            })
+        }
+
+
+        for (int i=0; i < t.length; i++) {
+            t[i].run()
+        }
+    }
+
+    @Test
+    void test_longLoad() {
+        for (int i=1; i < 2; i++) {
+            spawnThreads(500)
+            Thread.sleep(1000)
+        }
     }
 
     @Test
     void test_load() {
-        Thread[] threads = new Thread[1000];
+        JcrPersistentService xyz = (JcrPersistentService) grailsApplication.mainContext.getBean("jcrPersistentService")
+        println "hxyz - ${xyz.ocmPool}"
+
+        Thread[] threads = new Thread[10];
         for (int i =0 ; i < threads.length; i++) {
+            JcrPersistentService xy = (JcrPersistentService) grailsApplication.mainContext.getBean("jcrPersistentService")
+            println "hahha - ${xy.ocmPool}"
+
             threads[i] = new Thread( new Runnable() {
 
                 @Override
                 void run() {
-                      output()
+                    try {
+                        println "1"
+                        JcrPersistentService x = (JcrPersistentService) grailsApplication.mainContext.getBean("jcrPersistentService")
+                        println "2 - ${x.ocmPool}"
+//                        Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+                        println "3"
+//                        println "${o.uuid}"
+
+                    } catch (Exception e) {
+                        println e.getMessage()
+                    }
 //                    assertEquals('14da448f9-8f3b-4fb2-bd5f-d44f495b9610', o.uuid)
                 }
             })
@@ -118,8 +241,12 @@ class MainTestTests {
     }
 
     public final void output() {
-        def x = grailsApplication.mainContext.getBean("jcrPersistentService")
-        Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        try {
+            def x = grailsApplication.mainContext.getBean("jcrPersistentService")
+            Object o = x.getObject('/content/inquisition-dragonage/en_US/characters/humans/morrigan/jcr:content')
+        } catch (Exception e) {
+            println e.getMessage()
+        }
 //        println("in thread : ${o.uuid}")
     }
 }

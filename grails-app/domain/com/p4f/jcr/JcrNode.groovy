@@ -1,4 +1,4 @@
-package com.ea.core
+package com.p4f.jcr
 
 import com.ea.core.page.constants.CqConstants
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Field

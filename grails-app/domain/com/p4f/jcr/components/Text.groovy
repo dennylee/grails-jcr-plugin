@@ -1,6 +1,6 @@
-package com.ea.core.components
+package com.p4f.jcr.components
 
-import com.ea.core.JcrNode
+import com.p4f.jcr.JcrNode
 import com.ea.core.page.constants.CqConstants
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Field
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node

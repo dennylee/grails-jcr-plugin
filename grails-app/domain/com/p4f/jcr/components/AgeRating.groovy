@@ -1,7 +1,7 @@
-package com.ea.core.components
+package com.p4f.jcr.components
 
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
-import com.ea.core.JcrNode
+import com.p4f.jcr.JcrNode
 
 /**
  * Age Rating component

@@ -66,7 +66,6 @@ providers and the sessions communication to JCR repository is pooled.
         // TODO Implement post initialization spring config (optional)
 
         ((JcrPersistentServiceImpl) applicationContext.getBean("jcrPersistentService")).startup()
-        println "JcrPersistentService startup status: Success"
     }
 
     def onChange = { event ->
@@ -83,7 +82,6 @@ providers and the sessions communication to JCR repository is pooled.
     def onShutdown = { event ->
         // TODO Implement code that is executed when the application shuts down (optional)
         ((JcrPersistentServiceImpl) application.mainContext.getBean("jcrPersistentService")).shutdown()
-        println "JcrPersistentService shutdown status: Success"
     }
 
     private ConfigObject loadConfig(config) {

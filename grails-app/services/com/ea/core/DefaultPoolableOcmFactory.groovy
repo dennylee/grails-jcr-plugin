@@ -1,8 +1,8 @@
 package com.ea.core
 
+import grails.util.GrailsUtil
 import org.apache.commons.pool.BasePoolableObjectFactory
 import org.apache.jackrabbit.commons.JcrUtils
-import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
 import org.apache.jackrabbit.ocm.mapper.Mapper
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
 import org.apache.jackrabbit.ocm.reflection.ReflectionUtils
@@ -30,7 +30,9 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
     @Override
     void destroyObject(Object obj) throws Exception {
         // logout and close out the connection
-        ((ObjectContentManagerImpl) obj).logout()
+        OcmWorker ocmWorker = (OcmWorker) obj
+        ocmWorker.logout()
+        log.debug "Poolable Factory to destroyed OcmWorker ${ocmWorker.getId()}."
     }
 
     @Override
@@ -43,29 +45,37 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
         SimpleCredentials creds = new SimpleCredentials((String) config.username, ((String) config.password)?.toCharArray())
 
         // create session to repo
-        Session session = repo.login(creds,(String) config.workspace);
+        Session session = repo.login(creds, (String) config.workspace)
 
-        log.debug "Creating new ocm connection: host=${host}, username=${config.username}"
-        println "Creating new ocm connection: host=${host}, username=${config.username}"
-        return new ObjectContentManagerImpl(session, loadObjectMappings())
+        OcmWorker ocmWorker = new OcmWorker(session, loadObjectMappings())
+        log.debug "Poolable factory to make OcmWorker ${ocmWorker.getId()}"
+
+        return ocmWorker
     }
 
     /**
-     * Reads and loads the common object mappings and mappings made outside of this plugin
+     * Reads and loads the common object mappings and external mappings.
      */
     private Mapper loadObjectMappings() {
-        // load plugin's common object mappings
+        // load plugin's common object mappings.  The expected file should be named 'CommonObjectMappingConfig'
         def classLoader = new GroovyClassLoader(getClass().classLoader)
-        def config = new ConfigSlurper().parse(classLoader.loadClass('CommonObjectMapping'))
-
+        def config = new ConfigSlurper().parse(classLoader.loadClass('CommonObjectMappingConfig'))
         List<Class> commonClasses = new ArrayList<Class>()
-        commonClasses.addAll(config.grails.jcr.plugin.ocm.mapping.common)
+        commonClasses.addAll(config.mapping.common as List)
+
+        // load external object mappings.  The expected file should be named 'JcrObjectMappingConfig'
+        try {
+            def externalConfig = new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('JcrObjectMappingConfig'))
+            commonClasses.addAll(externalConfig?.mapping.objects as List)
+        } catch (ClassNotFoundException cnfe) {
+            log.info "No JcrObjectMappingConfig.groovy found"
+        }
+
+
+
 
         ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader()); // TODO: unsure why this is necessary
         Mapper mapper = new AnnotationMapperImpl(commonClasses)
-
-        // load external object mappings
-        // TODO: Load the external object mappings...how?
 
         return mapper
     }

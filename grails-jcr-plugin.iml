@@ -105,6 +105,9 @@
         <SOURCES>
           <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-ocm-1.5.3-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ideaLibSources/jcr-2.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-jcr2spi-2.7.4-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-spi2dav-2.7.4-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/commons-httpclient-3.1-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>

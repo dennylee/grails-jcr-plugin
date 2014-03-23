@@ -1,12 +1,6 @@
 package com.ea.core.pageContent
 
-import com.ea.core.components.Header
-import com.ea.core.page.constants.CqConstants
-import org.apache.jackrabbit.JcrConstants
-import org.apache.jackrabbit.ocm.mapper.impl.annotation.Bean
-import org.apache.jackrabbit.ocm.mapper.impl.annotation.Field
-import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
-import org.apache.jackrabbit.ocm.mapper.impl.annotation.Collection
+import com.p4f.jcr.components.Header
 
 //@Node(jcrType = CqConstants.CQ_PAGECONTENT, jcrMixinTypes = JcrConstants.JCR_CONTENT)
 class PageContent {

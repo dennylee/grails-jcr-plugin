@@ -7,8 +7,8 @@ config = {
         name "jcrPojoCache"
         maxElementsInMemory 10000
         maxElementsOnDisk 10000
-        timeToIdleSeconds oneHour
-        timeToLiveSeconds oneHour
+        timeToIdleSeconds 1
+        timeToLiveSeconds 1
         eternal false
         diskPersistent false
         memoryStoreEvictionPolicy "LRU"

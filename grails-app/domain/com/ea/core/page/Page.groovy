@@ -1,6 +1,6 @@
 package com.ea.core.page
 
-import com.ea.core.JcrNode
+import com.p4f.jcr.JcrNode
 
 /**
  *  cq:Page

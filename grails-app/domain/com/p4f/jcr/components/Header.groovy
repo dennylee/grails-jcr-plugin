@@ -1,4 +1,4 @@
-package com.ea.core.components
+package com.p4f.jcr.components
 
 import com.ea.core.UnstructuredNode
 import com.ea.core.page.constants.CqConstants

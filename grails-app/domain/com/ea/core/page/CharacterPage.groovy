@@ -1,13 +1,11 @@
 package com.ea.core.page
 
-import com.ea.core.components.Text
+import com.p4f.jcr.components.Text
 import com.ea.core.page.constants.CqConstants
 import org.apache.jackrabbit.JcrConstants
-import org.apache.jackrabbit.ocm.manager.beanconverter.impl.InlineBeanConverterImpl
-import org.apache.jackrabbit.ocm.manager.beanconverter.impl.ReferenceBeanConverterImpl
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Bean
 import org.apache.jackrabbit.ocm.mapper.impl.annotation.Node
-import com.ea.core.JcrNode
+import com.p4f.jcr.JcrNode
 
 /**
  * Demo of a character page

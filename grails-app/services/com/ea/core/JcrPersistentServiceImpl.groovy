@@ -5,7 +5,6 @@ import org.apache.commons.pool.PoolableObjectFactory
 import org.apache.commons.pool.impl.GenericObjectPool
 import org.apache.jackrabbit.ocm.exception.ObjectContentManagerException
 import org.apache.jackrabbit.ocm.query.Query
-import org.apache.jackrabbit.ocm.manager.ObjectContentManager
 import org.codehaus.groovy.grails.commons.GrailsApplication
 
 /**
@@ -16,14 +15,12 @@ import org.codehaus.groovy.grails.commons.GrailsApplication
  */
 public class JcrPersistentServiceImpl implements JcrPersistentService {
     static transactional = false
-    public int x = 0
-    private Object obj
 
     GrailsApplication grailsApplication
-    private GenericObjectPool ocmPool   // pool of object content managers
+    public GenericObjectPool ocmPool   // pool of object content managers
     private PoolableObjectFactory sessionFactory    // poolable object factory
 
-//    @Override
+    @Override
     public void startup() {
         def config = grailsApplication.config.grailsJcrPluginDataSource.properties
 
@@ -32,14 +29,13 @@ public class JcrPersistentServiceImpl implements JcrPersistentService {
         ocmPool = new GenericObjectPool(
                 sessionFactory,
                 (Integer) config.maxActive,
-                GenericObjectPool.WHEN_EXHAUSTED_GROW,
+                GenericObjectPool.WHEN_EXHAUSTED_BLOCK,
                 0,
                 (Integer) config.maxIdle);
 
         ocmPool.setTimeBetweenEvictionRunsMillis((Long) config.timeBetweenEvictionRunsMillis);
         ocmPool.setMinEvictableIdleTimeMillis((Long) config.minEvictableIdleTimeMillis);
         log.info "JcrPersistentService startup: success"
-        println "startup!!"
     }
 
     @Override
@@ -52,57 +48,85 @@ public class JcrPersistentServiceImpl implements JcrPersistentService {
         }
     }
 
-    @Cacheable(value = "jcrPojoCache", key = "#path")
+    @Cacheable(value = "jcrPojoCache", key = "{'getObject', #path}")
     @Override
     Object getObject(String path) throws ObjectContentManagerException {
-        synchronized (this) {
-            println "${x++} - instance = ${this}"
+        OcmWorker ocmWorker = getOcmWorker()
+        try {
+            return ocmWorker.getObject(path)
+        } finally {
+            // must return worker back to pool
+            ocmPool.returnObject(ocmWorker)
         }
-
-        ObjectContentManager ocm = getOcmFromPool()
-        Object o = ocm.getObject(path)
-        ocmPool.returnObject(ocm)
-
-        return o
     }
 
-    @Cacheable(value = "jcrPojoCache", key = "{'getObject', #objectClass, #path}")
+    @Cacheable(value = "jcrPojoCache", key = "{'getObject', #path}")
     @Override
     Object getObject(Class objectClass, String path) throws ObjectContentManagerException {
-        return getOcmFromPool().getObject(objectClass, path)
+        OcmWorker ocmWorker = getOcmWorker()
+        try {
+            return ocmWorker.getObject(objectClass, path)
+        } finally {
+            // must return worker back to pool
+            ocmPool.returnObject(ocmWorker)
+        }
     }
 
     @Cacheable(value = "jcrPojoCache", key = "{'getObject', #query}")
     @Override
     Object getObject(Query query) throws ObjectContentManagerException {
-        return getOcmFromPool().getObject(query)
+        OcmWorker ocmWorker = getOcmWorker()
+        try {
+            return ocmWorker.getObject(query)
+        } finally {
+            // must return worker back to pool
+            ocmPool.returnObject(ocmWorker)
+        }
     }
 
     @Cacheable(value = "jcrPojoCache", key = "{'getObjects', #query}")
     @Override
     Collection getObjects(Query query) throws ObjectContentManagerException {
-        return getOcmFromPool().getObjects(query)
+        OcmWorker ocmWorker = getOcmWorker()
+        try {
+            return ocmWorker.getObjects(query)
+        } finally {
+            // must return worker back to pool
+            ocmPool.returnObject(ocmWorker)
+        }
     }
 
     @Cacheable(value = "jcrPojoCache", key = "{'getObjects', #path}")
     @Override
     Collection getObjects(Class objectClass, String path) throws ObjectContentManagerException {
-        return getOcmFromPool().getObjects(objectClass, path)
+        OcmWorker ocmWorker = getOcmWorker()
+        try {
+            return ocmWorker.getObjects(objectClass, path)
+        } finally {
+            // must return worker back to pool
+            ocmPool.returnObject(ocmWorker)
+        }
     }
 
-    @Cacheable(value = "jcrPojoCache", key = "{'getObjects', #path}")
+    @Cacheable(value = "jcrPojoCache", key = "{#query, #language}")
     @Override
     Collection getObjects(String query, String language) {
-        return getOcmFromPool().getObjects(query, language)
+        OcmWorker ocmWorker = getOcmWorker()
+        try {
+            return ocmWorker.getObjects(query, language)
+        } finally {
+            // must return worker back to pool
+            ocmPool.returnObject(ocmWorker)
+        }
     }
 
     /**
-     * Helper method which will return as ObjectContentManager by casting
+     * Helper method which will return OcmWorker
      *
-     * @return A ObjectContentManager
+     * @return A OcmWorker object
      */
-    private ObjectContentManager getOcmFromPool() {
-        return (ObjectContentManager) ocmPool.borrowObject()
+    private OcmWorker getOcmWorker() {
+        return (OcmWorker) ocmPool.borrowObject()
     }
 
     GrailsApplication getGrailsApplication() {
