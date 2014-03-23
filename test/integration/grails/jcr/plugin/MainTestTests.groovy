@@ -1,7 +1,7 @@
 package grails.jcr.plugin
 
 import com.p4f.jcr.JcrNode
-import com.ea.core.JcrPersistentService
+import com.p4f.jcr.JcrPersistentService
 import com.p4f.jcr.components.Text
 import com.ea.core.page.CharacterPage
 import org.apache.jackrabbit.commons.JcrUtils

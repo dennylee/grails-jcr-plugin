@@ -33,6 +33,7 @@ grails.project.dependency.resolution = {
         runtime 'org.apache.jackrabbit:jackrabbit-spi2jcr:2.7.4'
         runtime 'org.apache.jackrabbit:jackrabbit-spi2dav:2.7.4'
         runtime 'org.apache.jackrabbit:jackrabbit-webdav:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-jcr-tests:2.2.8'
 
 
         runtime 'commons-httpclient:commons-httpclient:3.1'
@@ -40,7 +41,7 @@ grails.project.dependency.resolution = {
         runtime 'commons-logging:commons-logging:1.0.4'
 
 
-//        runtime 'org.apache.jackrabbit:jackrabbit-core:2.7.4'
+        runtime 'org.apache.jackrabbit:jackrabbit-core:2.7.4'
 
 //        runtime 'org.apache.jackrabbit:jackrabbit-jca:2.7.4'
 

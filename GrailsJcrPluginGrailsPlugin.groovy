@@ -1,6 +1,6 @@
-import com.ea.core.JcrPersistentService
-import com.ea.core.JcrPersistentServiceImpl
-import com.ea.core.JcrPersistentServiceImpl
+import com.p4f.jcr.JcrPersistentService
+import com.p4f.jcr.JcrPersistentServiceImpl
+import com.p4f.jcr.JcrPersistentServiceImpl
 import grails.util.GrailsUtil
 
 class GrailsJcrPluginGrailsPlugin {

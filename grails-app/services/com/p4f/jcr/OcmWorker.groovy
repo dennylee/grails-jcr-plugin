@@ -1,4 +1,4 @@
-package com.ea.core
+package com.p4f.jcr
 
 import org.apache.jackrabbit.ocm.manager.impl.ObjectContentManagerImpl
 import org.apache.jackrabbit.ocm.mapper.Mapper

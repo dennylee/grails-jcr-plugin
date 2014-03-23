@@ -1,4 +1,4 @@
-package com.ea.core
+package com.p4f.jcr
 
 import grails.util.GrailsUtil
 import org.apache.commons.pool.BasePoolableObjectFactory
@@ -70,9 +70,6 @@ public class DefaultPoolableOcmFactory extends BasePoolableObjectFactory {
         } catch (ClassNotFoundException cnfe) {
             log.info "No JcrObjectMappingConfig.groovy found"
         }
-
-
-
 
         ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader()); // TODO: unsure why this is necessary
         Mapper mapper = new AnnotationMapperImpl(commonClasses)

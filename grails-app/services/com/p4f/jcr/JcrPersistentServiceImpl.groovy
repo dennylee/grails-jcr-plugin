@@ -1,4 +1,4 @@
-package com.ea.core
+package com.p4f.jcr
 
 import grails.plugin.cache.Cacheable
 import org.apache.commons.pool.PoolableObjectFactory
@@ -121,12 +121,15 @@ public class JcrPersistentServiceImpl implements JcrPersistentService {
     }
 
     /**
-     * Helper method which will return OcmWorker
+     * Helper method which will return OcmWorker.
+     * It will also increment the borrow count on the object
      *
      * @return A OcmWorker object
      */
     private OcmWorker getOcmWorker() {
-        return (OcmWorker) ocmPool.borrowObject()
+        OcmWorker ocmWorker = (OcmWorker) ocmPool.borrowObject()
+        ocmWorker.incrementNumOfBorrowed()
+        return ocmWorker
     }
 
     GrailsApplication getGrailsApplication() {
