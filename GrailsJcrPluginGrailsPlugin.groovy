@@ -1,5 +1,3 @@
-import com.p4f.jcr.JcrPersistentService
-import com.p4f.jcr.JcrPersistentServiceImpl
 import com.p4f.jcr.JcrPersistentServiceImpl
 import grails.util.GrailsUtil
 
