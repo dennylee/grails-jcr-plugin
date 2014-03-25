@@ -8,6 +8,7 @@ grailsJcrPluginDataSource {
     properties {
         maxActive = 10   // max number of objects that can be borrowed from pool at one time
         maxIdle = 8 // max number of idle objects in pool (ms)
+        maxWait = 0
         minEvictableIdleTimeMillis = 300000
         timeBetweenEvictionRunsMillis = 60000
     }

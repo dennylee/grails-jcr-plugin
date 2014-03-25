@@ -8,26 +8,17 @@ import org.apache.jackrabbit.ocm.query.Query
  * Most of the methods are 'Get' calls because the plugin is designed
  * to only retrieve data from CQ5, not update nor persist them.
  */
-public interface JcrPersistentService {
-    
+public interface OcmService {
     /**
-     * Shutsdown the service
-     *
-     * @return TRUE if shutdown was successful.  Otherwise FALSE
-     * @throws Exception Failed to shutdown with exception
-     */
-    public boolean shutdown() throws Exception
-
-    /**
-     * Get an object from the JCR repository
-     *
-     * @param path
-     *            the object path
-     * @return the object found or null
-     *
-     * @throws ObjectContentManagerException
-     *             when it is not possible to retrieve the object
-     */
+    * Get an object from the JCR repository
+    *
+    * @param path
+    *            the object path
+    * @return the object found or null
+    *
+    * @throws org.apache.jackrabbit.ocm.exception.ObjectContentManagerException
+    *             when it is not possible to retrieve the object
+    */
     public Object getObject(String path) throws ObjectContentManagerException
 
     /**
@@ -88,4 +79,12 @@ public interface JcrPersistentService {
      * @return
      */
     public Collection getObjects(String query, String language)
+
+    /**
+     * Close the session
+     *
+     * @throws ObjectContentManagerException
+     *             when it is not possible to logout
+     */
+    public void logout() throws ObjectContentManagerException;
 }

@@ -122,6 +122,8 @@
           <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-jcr2spi-2.7.4-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-spi2dav-2.7.4-sources.jar!/" />
           <root url="jar://$USER_HOME$/.ideaLibSources/commons-httpclient-3.1-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-jcr-tests-2.2.8-sources.jar!/" />
+          <root url="jar://$USER_HOME$/.ideaLibSources/jackrabbit-spi-commons-2.7.4-sources.jar!/" />
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>

@@ -1,5 +1,14 @@
 import com.p4f.jcr.JcrPersistentServiceImpl
+import com.p4f.jcr.PoolableOcmServiceFactory
 import grails.util.GrailsUtil
+import org.apache.commons.pool.impl.GenericObjectPool
+import org.apache.jackrabbit.commons.JcrUtils
+import org.apache.jackrabbit.ocm.mapper.Mapper
+import org.apache.jackrabbit.ocm.mapper.impl.annotation.AnnotationMapperImpl
+import org.apache.jackrabbit.ocm.reflection.ReflectionUtils
+
+import javax.jcr.Repository
+import javax.jcr.SimpleCredentials
 
 class GrailsJcrPluginGrailsPlugin {
     // the plugin version
@@ -48,12 +57,9 @@ providers and the sessions communication to JCR repository is pooled.
     def doWithSpring = {
         // TODO Implement runtime spring config (optional)
 
+        //load necessary configuration
         loadConfig(application.config)
 
-        // create bean in spring context
-        jcrPersistentService(JcrPersistentServiceImpl) {
-            grailsApplication = application
-        }
     }
 
     def doWithDynamicMethods = { ctx ->
@@ -62,8 +68,6 @@ providers and the sessions communication to JCR repository is pooled.
 
     def doWithApplicationContext = { applicationContext ->
         // TODO Implement post initialization spring config (optional)
-
-        ((JcrPersistentServiceImpl) applicationContext.getBean("jcrPersistentService")).startup()
     }
 
     def onChange = { event ->
@@ -79,7 +83,6 @@ providers and the sessions communication to JCR repository is pooled.
 
     def onShutdown = { event ->
         // TODO Implement code that is executed when the application shuts down (optional)
-        ((JcrPersistentServiceImpl) application.mainContext.getBean("jcrPersistentService")).shutdown()
     }
 
     private ConfigObject loadConfig(config) {
@@ -90,5 +93,54 @@ providers and the sessions communication to JCR repository is pooled.
 
         // merge plugin's cache config
         config.merge(new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('GrailsJcrPluginCacheConfig')).merge(config))
+    }
+
+    /**
+     * Helper method to create the object pool to be used
+     *
+     * @param config datasource config
+     * @return The object pool
+     */
+    private GenericObjectPool createObjectPool(def config) {
+        SimpleCredentials creds = new SimpleCredentials(config.username, config.password?.toCharArray())
+        Repository repo = JcrUtils.getRepository(config.host + config.path)
+
+        PoolableOcmServiceFactory ocmServiceFactory = new PoolableOcmServiceFactory(
+                repo, loadObjectMappings(), creds, config.workspace)
+
+        GenericObjectPool pool = new GenericObjectPool(
+                ocmServiceFactory,
+                config.properties.maxActive ?: GenericObjectPool.DEFAULT_MAX_ACTIVE,
+                GenericObjectPool.WHEN_EXHAUSTED_BLOCK,
+                config.properties.maxWait ?: GenericObjectPool.DEFAULT_MAX_WAIT,
+                config.properties.maxIdle ?: GenericObjectPool.DEFAULT_MAX_IDLE
+        )
+
+        return pool
+    }
+
+    /**
+     * Reads and loads the common object mappings and external mappings.
+     */
+    private Mapper loadObjectMappings() {
+        // load plugin's common object mappings.  The expected file should be named 'CommonObjectMappingConfig'
+        def classLoader = new GroovyClassLoader(getClass().classLoader)
+        def config = new ConfigSlurper().parse(classLoader.loadClass('CommonObjectMappingConfig'))
+        List<Class> commonClasses = new ArrayList<Class>()
+        commonClasses.addAll(config.mapping.common as List)
+
+        // load external object mappings.  The expected file should be named 'JcrObjectMappingConfig'
+        try {
+            def externalConfig = new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('*JcrObjectMappingConfig'))
+            commonClasses.addAll(externalConfig?.mapping.objects as List)
+        } catch (ClassNotFoundException cnfe) {
+            println "No JcrObjectMappingConfig.groovy found."
+        }
+
+        // TODO: I'm wondering if it's because this is a groovy class instead of java class
+        ReflectionUtils.setClassLoader(Thread.currentThread().getContextClassLoader());
+        Mapper mapper = new AnnotationMapperImpl(commonClasses)
+
+        return mapper
     }
 }
