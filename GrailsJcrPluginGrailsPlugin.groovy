@@ -60,6 +60,9 @@ providers and the sessions communication to JCR repository is pooled.
         //load necessary configuration
         loadConfig(application.config)
 
+        // create bean in spring context
+        jcrPersistentService(JcrPersistentServiceImpl,
+                createObjectPool(application.config.grailsJcrPluginDataSource)) { }
     }
 
     def doWithDynamicMethods = { ctx ->
@@ -131,7 +134,7 @@ providers and the sessions communication to JCR repository is pooled.
 
         // load external object mappings.  The expected file should be named 'JcrObjectMappingConfig'
         try {
-            def externalConfig = new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('*JcrObjectMappingConfig'))
+            def externalConfig = new ConfigSlurper(GrailsUtil.environment).parse(classLoader.loadClass('JcrObjectMappingConfig'))
             commonClasses.addAll(externalConfig?.mapping.objects as List)
         } catch (ClassNotFoundException cnfe) {
             println "No JcrObjectMappingConfig.groovy found."

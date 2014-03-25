@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41ea9d35-26f2-4651-858d-b0fe31e5d534" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/mock/CharacterPageMock.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/MapperStub.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/ObjectContentManagerStub.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/OcmService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/OcmServiceImpl.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/service/OcmServiceImplTests.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/PoolableOcmServiceFactoryStub.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/service/PoolableOcmServiceFactoryTests.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/QueryImplStub.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/RepositoryStub.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/SessionStub.groovy" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/OcmWorker.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/com/p4f/jcr/AbstractRepositoryTestBase.groovy" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/DefaultPoolableOcmFactory.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/PoolableOcmServiceFactory.groovy" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/unit/com/p4f/jcr/DefaultPoolableOcmFactoryTests.groovy" afterPath="$PROJECT_DIR$/test/unit/com/p4f/jcr/service/JcrPersistentServiceImplTests.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/GrailsJcrPluginCacheConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/GrailsJcrPluginCacheConfig.groovy" />
+    <list default="true" id="41ea9d35-26f2-4651-858d-b0fe31e5d534" name="Default" comment="Test cases and refactor code base">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy" afterPath="$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentService.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-jcr-plugin-grailsPlugins.iml" afterPath="$PROJECT_DIR$/grails-jcr-plugin-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-jcr-plugin.iml" afterPath="$PROJECT_DIR$/grails-jcr-plugin.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" afterPath="$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="grails-jcr-plugin.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395726008272" ignored="false" />
+    <file path="/Dummy.txt" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395736028792" ignored="false" />
     <file path="/Config.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395375607873" ignored="false" />
-    <file path="/a.dummy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395732581272" ignored="false" />
-    <file path="/MainTestTests.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395510440448" ignored="false" />
+    <file path="/a.dummy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395735582981" ignored="false" />
+    <file path="/MainTestTests.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395733527105" ignored="false" />
     <file path="/PageContent.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1394924913284" ignored="false" />
     <file path="/CqConstants.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1394779385662" ignored="false" />
     <file path="/fragment.java" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395732830802" ignored="false" />
@@ -49,12 +30,12 @@
     <file path="/JcrNode.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395299536087" ignored="false" />
     <file path="/Text.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395299568568" ignored="false" />
     <file path="/PersistentManager.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395347402276" ignored="false" />
-    <file path="/GrailsJcrPluginGrailsPlugin.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395732247825" ignored="false" />
+    <file path="/GrailsJcrPluginGrailsPlugin.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395733941568" ignored="false" />
     <file path="/PeristentManagerConfig.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395347469695" ignored="false" />
     <file path="/CommonObjectMapping.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395414663248" ignored="false" />
     <file path="/JcrPersistentService.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395726862435" ignored="false" />
     <file path="/DataSource.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395728021510" ignored="false" />
-    <file path="/JcrPersistentServiceImpl.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395727622454" ignored="false" />
+    <file path="/JcrPersistentServiceImpl.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395734657700" ignored="false" />
     <file path="/CacheConfig.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395439589707" ignored="false" />
     <file path="/CharacterPage.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395616809147" ignored="false" />
     <file path="/OcmWorker.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395525654511" ignored="false" />
@@ -64,7 +45,7 @@
     <file path="$PROJECT_DIR$/../jackrabbit-ocm/pom.xml" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395542089304" ignored="false" />
     <file path="/BuildConfig.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395637023925" ignored="false" />
     <file path="/AbstractRepositoryTestBase.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395544103578" ignored="false" />
-    <file path="$PROJECT_DIR$/../JcrWebApp/grails-app/conf/BuildConfig.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395595164866" ignored="false" />
+    <file path="$PROJECT_DIR$/../JcrWebApp/grails-app/conf/BuildConfig.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395735511887" ignored="false" />
     <file path="$PROJECT_DIR$/../JcrWebApp/grails-app/conf/JcrObjectMappingConfig.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395595436672" ignored="false" />
     <file path="$PROJECT_DIR$/../JcrWebApp/test/unit/jcrwebapp/CharacterPageTests.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395592355490" ignored="false" />
     <file path="$PROJECT_DIR$/../JcrWebApp/grails-app/domain/jcrwebapp/CharacterPage.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395592384778" ignored="false" />
@@ -99,6 +80,8 @@
     <file path="/JcrPersistentServiceImplTests.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395727343706" ignored="false" />
     <file path="/PoolableOcmServiceFactoryStub.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395726427663" ignored="false" />
     <file path="/resources.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395731494089" ignored="false" />
+    <file path="$USER_HOME$/.grails/2.1.4/projects/JcrWebApp/plugins/grails-jcr-plugin-0.1.1/GrailsJcrPluginGrailsPlugin.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395734857666" ignored="false" />
+    <file path="$USER_HOME$/.grails/2.1.4/projects/JcrWebApp/plugins/grails-jcr-plugin-0.1.1/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" changelist="41ea9d35-26f2-4651-858d-b0fe31e5d534" time="1395734563073" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +231,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="80" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="81" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -263,7 +246,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="247" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="248" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -278,7 +261,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="151" class="grails.jcr.plugin.MainTestTests$0" package="grails.jcr.plugin">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="152" class="grails.jcr.plugin.MainTestTests$0" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -323,7 +306,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="94" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="95" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -368,7 +351,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="176" class="grails.jcr.plugin.MainTestTests$0" package="grails.jcr.plugin">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="177" class="grails.jcr.plugin.MainTestTests$0" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -383,7 +366,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" line="19" class="com.p4f.jcr.JcrPersistentServiceImpl" package="com.p4f.jcr">
+      <breakpoint url="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" line="22" class="com.p4f.jcr.JcrPersistentServiceImpl" package="com.p4f.jcr">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -398,7 +381,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy" line="104" class="GrailsJcrPluginGrailsPlugin" package="">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="201" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -413,37 +396,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy" line="126" class="GrailsJcrPluginGrailsPlugin" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="200" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="208" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="209" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -458,7 +411,7 @@
         <option name="CONDITION" value="&#13;&#13;JAVA" />
         <option name="LOG_MESSAGE" value="&#13;&#13;Groovy" />
       </breakpoint>
-      <breakpoint url="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.springframework/spring-beans/jars/spring-beans-3.1.4.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java" line="543" class="org.springframework.beans.factory.support.DefaultListableBeanFactory" package="org.springframework.beans.factory.support">
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="26" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -470,8 +423,23 @@
         <option name="CONDITION_ENABLED" value="true" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="beanName.equals(&quot;host&quot;)&#13;&#13;JAVA" />
-        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" line="37" class="grails.jcr.plugin.MainTestTests" package="grails.jcr.plugin">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
@@ -483,38 +451,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Method.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home/src.zip!/java/lang/reflect/Method.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="600" column="0" selection-start="24566" selection-end="24566" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CachedMethod.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/org/codehaus/groovy/reflection/CachedMethod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="0" selection-start="2878" selection-end="2878" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MetaMethod.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/groovy/lang/MetaMethod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="0" selection-start="8528" selection-end="8528" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MetaClassImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/groovy/lang/MetaClassImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="900" column="0" selection-start="38904" selection-end="38904" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrailsJcrPluginGrailsPlugin.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="54" selection-start="811" selection-end="811" vertical-scroll-proportion="-0.35211268">
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -537,12 +489,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OcmServiceImpl.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OcmServiceImpl.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/OcmServiceImpl.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="6" selection-start="411" selection-end="411" vertical-scroll-proportion="0.3326087">
+            <state line="13" column="6" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#21#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainTestTests.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="29" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#27#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -557,19 +520,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Script.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/groovy/lang/Script.java">
+      <file leaf-file-name="JcrPersistentServiceImpl.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="0" selection-start="2280" selection-end="2280" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExpandoMetaClass.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/groovy/lang/ExpandoMetaClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1109" column="0" selection-start="45228" selection-end="45228" vertical-scroll-proportion="0.0">
+            <state line="25" column="18" selection-start="879" selection-end="879" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -596,7 +550,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/MapperStub.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/SessionStub.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/p4f/jcr/stub/RepositoryStub.groovy" />
         <option value="$PROJECT_DIR$/test/unit/com/p4f/jcr/service/PoolableOcmServiceFactoryTests.groovy" />
@@ -607,11 +560,12 @@
         <option value="$PROJECT_DIR$/test/unit/com/p4f/jcr/mock/CharacterPageMock.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/GrailsJcrPluginCacheConfig.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/spring/resources.groovy" />
-        <option value="$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/PoolableOcmServiceFactory.groovy" />
+        <option value="$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy" />
+        <option value="$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy" />
       </list>
     </option>
   </component>
@@ -637,7 +591,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -648,88 +602,19 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jcr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="grails-jcr-plugin-grailsPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="80" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="80" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.0" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="80" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="86" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jackrabbit-ocm" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="82" />
@@ -746,8 +631,8 @@
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
@@ -755,8 +640,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -766,7 +651,7 @@
       <recent name="com.ea.core.page" />
     </key>
   </component>
-  <component name="RunManager" selected="Grails.test_load()">
+  <component name="RunManager" selected="Grails.test_longLoad()">
     <configuration default="false" name="PoolableOcmServiceFactoryTests" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
       <module name="grails-jcr-plugin" />
       <setting name="vmparams" value="" />
@@ -785,42 +670,10 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="OcmServiceImplTests" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="grails-jcr-plugin" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="test-app unit: com.p4f.jcr.service.OcmServiceImpl -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="true" />
-      <RunnerSettings RunnerId="GrailsMavenDebuggerRunner">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="GrailsMavenDebuggerRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="JcrPersistentServiceImplTests" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
       <module name="grails-jcr-plugin" />
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="test-app unit: com.p4f.jcr.service.JcrPersistentServiceImpl -echoOut" />
-      <setting name="depsClasspath" value="true" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="true" />
-      <RunnerSettings RunnerId="GrailsMavenDebuggerRunner">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="GrailsMavenDebuggerRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="test_longLoad()" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="grails-jcr-plugin" />
-      <setting name="vmparams" value="-Dgrails.env=development" />
-      <setting name="cmdLine" value="test-app integration: grails.jcr.plugin.MainTest.test_longLoad -echoOut" />
       <setting name="depsClasspath" value="true" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -849,19 +702,38 @@
       <ConfigurationWrapper RunnerId="GrailsMavenDebuggerRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="" />
-      <setting name="path" value="" />
+    <configuration default="false" name="testMain()" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
+      <module name="grails-jcr-plugin" />
       <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
+      <setting name="cmdLine" value="test-app integration: grails.jcr.plugin.MainTest.testMain -echoOut" />
+      <setting name="depsClasspath" value="true" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="true" />
+      <RunnerSettings RunnerId="GrailsMavenDebuggerRunner">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="GrailsMavenDebuggerRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
+    <configuration default="false" name="test_longLoad()" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
+      <module name="grails-jcr-plugin" />
+      <setting name="vmparams" value="-Dgrails.env=development" />
+      <setting name="cmdLine" value="test-app integration: grails.jcr.plugin.MainTest.test_longLoad -echoOut" />
+      <setting name="depsClasspath" value="true" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="true" />
+      <RunnerSettings RunnerId="GrailsMavenDebuggerRunner">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="GrailsMavenDebuggerRunner" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
@@ -874,12 +746,40 @@
       <setting name="launchBrowser" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -908,19 +808,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -961,18 +848,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Grails.PoolableOcmServiceFactoryTests" />
-      <item index="1" class="java.lang.String" itemvalue="Grails.OcmServiceImplTests" />
-      <item index="2" class="java.lang.String" itemvalue="Grails.JcrPersistentServiceImplTests" />
-      <item index="3" class="java.lang.String" itemvalue="Grails.test_longLoad()" />
-      <item index="4" class="java.lang.String" itemvalue="Grails.test_load()" />
+      <item index="1" class="java.lang.String" itemvalue="Grails.JcrPersistentServiceImplTests" />
+      <item index="2" class="java.lang.String" itemvalue="Grails.test_load()" />
+      <item index="3" class="java.lang.String" itemvalue="Grails.testMain()" />
+      <item index="4" class="java.lang.String" itemvalue="Grails.test_longLoad()" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Grails.test_load()" />
-        <item index="1" class="java.lang.String" itemvalue="Grails.test_longLoad()" />
-        <item index="2" class="java.lang.String" itemvalue="Grails.JcrPersistentServiceImplTests" />
-        <item index="3" class="java.lang.String" itemvalue="Grails.PoolableOcmServiceFactoryTests" />
-        <item index="4" class="java.lang.String" itemvalue="Grails.OcmServiceImplTests" />
+        <item index="0" class="java.lang.String" itemvalue="Grails.test_longLoad()" />
+        <item index="1" class="java.lang.String" itemvalue="Grails.testMain()" />
+        <item index="2" class="java.lang.String" itemvalue="Grails.test_longLoad()" />
+        <item index="3" class="java.lang.String" itemvalue="Grails.test_load()" />
+        <item index="4" class="java.lang.String" itemvalue="Grails.JcrPersistentServiceImplTests" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1032,7 +919,11 @@
       <created>1395608463334</created>
       <updated>1395608463334</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Test cases and refactor code base">
+      <created>1395732996223</created>
+      <updated>1395732996223</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1053,13 +944,13 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24455206" sideWeight="0.84350723" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24528302" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24528302" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2308546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44395116" sideWeight="0.53833735" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44395116" sideWeight="0.53833735" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27280065" sideWeight="0.5560488" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27280065" sideWeight="0.754717" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1114,7 +1005,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bring JCR ocm test libraries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test cases and refactor code base" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1135,6 +1026,7 @@
     <MESSAGE value="Clean up...just missing tests" />
     <MESSAGE value="Begin test cases" />
     <MESSAGE value="Bring JCR ocm test libraries" />
+    <MESSAGE value="Test cases and refactor code base" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1148,27 +1040,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/org/codehaus/groovy/runtime/callsite/AbstractCallSite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="0" selection-start="4335" selection-end="4335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-1.8.8-sources.jar!/groovy/lang/Closure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="408" column="0" selection-start="14441" selection-end="14441" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/src/grails-bootstrap-2.1.4-sources.jar!/org/codehaus/groovy/grails/cli/api/BaseSettingsApi.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="287" column="0" selection-start="10485" selection-end="10485" vertical-scroll-proportion="0.0">
@@ -1246,6 +1117,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/OcmServiceImpl.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="6" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#21#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/../../Compiler/grails-2.1.4/lib/org.springframework/spring-beans/jars/spring-beans-3.1.4.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="548" column="0" selection-start="21987" selection-end="21987" vertical-scroll-proportion="0.0">
@@ -1253,11 +1133,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/OcmServiceImpl.groovy">
+    <entry file="file://$PROJECT_DIR$/test/integration/grails/jcr/plugin/MainTestTests.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="6" selection-start="411" selection-end="411" vertical-scroll-proportion="0.3326087">
+        <state line="19" column="29" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#21#93#0" expanded="true" />
+            <element signature="e#27#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/p4f/jcr/JcrPersistentServiceImpl.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="18" selection-start="879" selection-end="879" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GrailsJcrPluginGrailsPlugin.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="54" selection-start="811" selection-end="811" vertical-scroll-proportion="-0.35211268">
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

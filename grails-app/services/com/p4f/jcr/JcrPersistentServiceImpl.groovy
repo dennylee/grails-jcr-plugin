@@ -14,7 +14,10 @@ import org.apache.jackrabbit.ocm.query.Query
 public class JcrPersistentServiceImpl implements JcrPersistentService {
     static transactional = false
 
-    public GenericObjectPool ocmPool   // pool of object content managers
+    private GenericObjectPool ocmPool   // pool of object content managers
+
+    public JcrPersistentServiceImpl() {
+    }
 
     public JcrPersistentServiceImpl(GenericObjectPool objectPool) {
         ocmPool = objectPool
